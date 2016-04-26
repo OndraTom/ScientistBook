@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" type="text/css" href="{$basePath}/css/global.css" />
+
+		<title>{ifset title}{include title|striptags} | {/ifset}Scientists</title>
+	</head>
+
+	<body>
+		<div id="content">
+			<header>
+				<nav id="left-nav">
+					<a n:href="Homepage:default">Homepage</a>
+					<a n:href="About:default">About</a>
+					<a n:href="Education:default">Education</a>
+					<a n:href="Positions:default">Positions</a>
+					<a n:href="Awards:default">Awards</a>
+					<a n:href="Interests:default">Interests</a>
+					<a n:href="Projects:default">Projects</a>
+					<a n:href="Publications:default">Publications</a>
+					<a n:href="Teaching:default">Teaching</a>
+					<a n:href="Gallery:default">Gallery</a>
+					<a n:href="Contact:default">Contact</a>
+				</nav>
+
+				<nav id="right-nav">
+					<a n:href=":Homepage:default">Homek</a>
+					<a n:href="logout!">Log-out</a>
+				</nav>
+			</header>
+
+			<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+
+			{include content}
+		</div>
+
+		{block scripts}
+			<script src="{$basePath}/js/netteForms.min.js"></script>
+		{/block}
+	</body>
+</html>
