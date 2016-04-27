@@ -23,7 +23,7 @@ abstract class CommonItemsPresenter extends BasePresenter
 		}
 	}
 
-	
+
 	public function actionDefault()
 	{
 		$this->items = $this->model->findBy(['user_id' => $this->user->id]);
@@ -38,6 +38,8 @@ abstract class CommonItemsPresenter extends BasePresenter
 
 	public function itemFormSubmitted(Form $form, ArrayHash $values)
 	{
+		$this->nullEmptyValues($values);
+
 		$values->user_id = $this->user->id;
 
 		$this->model->insert($values);

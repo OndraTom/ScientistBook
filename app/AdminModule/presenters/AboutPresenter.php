@@ -60,6 +60,8 @@ class AboutPresenter extends BasePresenter
 
 	public function aboutFormSubmitted(Form $form, ArrayHash $values)
 	{
+		$this->nullEmptyValues($values);
+
 		$this->usersModel->update($values, $this->user->id);
 
 		$this->flashMessage('Data have been successfully saved.');
