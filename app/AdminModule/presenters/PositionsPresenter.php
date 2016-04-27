@@ -24,9 +24,12 @@ class PositionsPresenter extends CommonItemsPresenter
 				->setRequired();
 
 		$form->addText('year_from', 'Year from:')
+				->addRule(Form::RANGE, 'Year has to be between 1900 and ' . date('Y'), array(1900, date('Y')))
 				->setRequired();
 
-		$form->addText('year_to', 'Year to:');
+		$form->addText('year_to', 'Year to:')
+				->addCondition(Form::FILLED)
+					->addRule(Form::RANGE, 'Year has to be between 1900 and ' . date('Y'), array(1900, date('Y')));
 
 		$form->addSubmit('save', 'Save');
 

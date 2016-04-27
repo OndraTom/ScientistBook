@@ -38,7 +38,9 @@ class AboutPresenter extends BasePresenter
 
 		$form->addText('phone', 'Phone:');
 
-		$form->addText('mail', 'E-mail:');
+		$form->addText('mail', 'E-mail:')
+				->addCondition(Form::FILLED)
+					->addRule(Form::EMAIL);
 
 		$form->addText('skype', 'Skype:');
 

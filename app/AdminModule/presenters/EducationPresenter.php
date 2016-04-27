@@ -24,6 +24,7 @@ class EducationPresenter extends CommonItemsPresenter
 				->setRequired();
 
 		$form->addText('graduation_year', 'Graduation year:')
+				->addRule(Form::RANGE, 'Year has to be between 1900 and ' . date('Y'), array(1900, date('Y')))
 				->setRequired();
 
 		$form->addText('place', 'Place:')

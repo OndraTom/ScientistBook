@@ -33,6 +33,7 @@ class PublicationsPresenter extends CommonItemsPresenter
 				->setRequired();
 
 		$form->addText('year', 'Year:')
+				->addRule(Form::RANGE, 'Year has to be between 1900 and ' . date('Y'), array(1900, date('Y')))
 				->setRequired();
 
 		$form->addText('link', 'Link:');
