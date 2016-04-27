@@ -1,3 +1,9 @@
 {block content}
 
-interests
+<h1>Interests</h1>
+
+<div n:foreach="$items as $item">
+	{$item->title} | <a n:href="deleteItem! $item->id">Delete</a>
+</div>
+
+{control interestForm}

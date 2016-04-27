@@ -1,3 +1,9 @@
 {block content}
 
-gallery
+<h1>Gallery</h1>
+
+<div n:foreach="$items as $item">
+	{$item->name} | <a n:href="deletePhoto! $item->id">Delete</a>
+</div>
+
+{control photosForm}

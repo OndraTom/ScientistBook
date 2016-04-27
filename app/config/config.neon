@@ -23,4 +23,9 @@ services:
 	- App\Models\EducationModel
 	- App\Models\PositionsModel
 	- App\Models\AwardsModel
+	- App\Models\InterestsModel
+	- App\Models\ProjectsModel
+	- App\Models\PublicationsModel
+	- App\Models\TeachingModel
+	- App\Models\GalleryModel
 	router: App\RouterFactory::createRouter

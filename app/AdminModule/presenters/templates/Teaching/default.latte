@@ -1,3 +1,9 @@
 {block content}
 
-teaching
+<h1>Teaching</h1>
+
+<div n:foreach="$items as $item">
+	{$item->title} | <a n:href="deleteItem! $item->id">Delete</a>
+</div>
+
+{control teachingForm}
