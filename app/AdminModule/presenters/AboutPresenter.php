@@ -11,18 +11,9 @@ class AboutPresenter extends BasePresenter
 	protected $usersModel;
 
 
-	protected $bio;
-
-
 	public function __construct(UsersModel $usersModel)
 	{
 		$this->usersModel = $usersModel;
-	}
-
-
-	public function actionDefault()
-	{
-		$this->bio = $this->usersModel->find($this->user->id)->bio;
 	}
 
 
@@ -30,11 +21,34 @@ class AboutPresenter extends BasePresenter
 	{
 		$form = new Form;
 
+		$form->addText('name', 'Name:')
+				->setRequired();
+
+		$form->addText('surname', 'Surname:')
+				->setRequired();
+
 		$form->addTextArea('bio', 'Bio:')
-				->setDefaultValue($this->bio)
-				->setRequired('Please, fill the Bio.');
+				->setRequired();
+
+		$form->addText('facility', 'Facility:');
+
+		$form->addTextArea('research_summary', 'Research summary:');
+
+		$form->addTextArea('contact_info', 'Contact info:');
+
+		$form->addText('phone', 'Phone:');
+
+		$form->addText('mail', 'E-mail:');
+
+		$form->addText('skype', 'Skype:');
+
+		$form->addText('twitter', 'Twitter:');
+
+		$form->addText('linked_in', 'LinkedIn:');
 
 		$form->addSubmit('save', 'Save');
+
+		$form->setDefaults($this->usersModel->findBy(['id' => $this->user->id])->fetch());
 
 		$form->onSuccess[] = $this->aboutFormSubmitted;
 
@@ -46,7 +60,7 @@ class AboutPresenter extends BasePresenter
 	{
 		$this->usersModel->update($values, $this->user->id);
 
-		$this->flashMessage('Bio has been successfully saved.');
+		$this->flashMessage('Data have been successfully saved.');
 
 		$this->redirect('this');
 	}
