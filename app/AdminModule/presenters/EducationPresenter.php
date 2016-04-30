@@ -15,7 +15,7 @@ class EducationPresenter extends CommonItemsPresenter
 
 	protected function createComponentEducationForm()
 	{
-		$form = new Form;
+		$form = $this->getForm();
 
 		$form->addText('title', 'Title:')
 				->setRequired();
@@ -30,7 +30,14 @@ class EducationPresenter extends CommonItemsPresenter
 		$form->addText('place', 'Place:')
 				->setRequired();
 
+		$form->addHidden('id');
+
 		$form->addSubmit('save', 'Save');
+
+		if (isset($this->selectedItem))
+		{
+			$form->setDefaults($this->selectedItem);
+		}
 
 		$form->onSuccess[] = $this->itemFormSubmitted;
 

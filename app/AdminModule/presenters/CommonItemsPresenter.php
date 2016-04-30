@@ -13,6 +13,9 @@ abstract class CommonItemsPresenter extends BasePresenter
 	protected $items;
 
 
+	protected $selectedItem;
+
+
 	public function startup()
 	{
 		parent::startup();
@@ -32,7 +35,8 @@ abstract class CommonItemsPresenter extends BasePresenter
 
 	public function renderDefault()
 	{
-		$this->template->items = $this->items;
+		$this->template->items			= $this->items;
+		$this->template->isItemSelected	= isset($this->selectedItem);
 	}
 
 
@@ -42,7 +46,14 @@ abstract class CommonItemsPresenter extends BasePresenter
 
 		$values->user_id = $this->user->id;
 
-		$this->model->insert($values);
+		if ($values->id)
+		{
+			$this->model->update($values, $values->id);
+		}
+		else
+		{
+			$this->model->insert($values);
+		}
 
 		$this->flashMessage('Item has been successfully saved.');
 
@@ -55,5 +66,18 @@ abstract class CommonItemsPresenter extends BasePresenter
 		$this->model->deleteBy(['user_id' => $this->user->id, 'id' => $itemId]);
 
 		$this->redirect('this');
+	}
+
+
+	public function handleEditItem($itemId)
+	{
+		if (!$this->isAjax())
+		{
+			return;
+		}
+
+		$this->selectedItem = $this->model->find($itemId);
+
+		$this->redrawControl('editDialog');
 	}
 }

@@ -1,0 +1,8 @@
+h1 {
+	text-align: center;
+}
+
+form.main-center {
+	max-width: 500px;
+	margin: auto;
+}

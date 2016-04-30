@@ -3,6 +3,8 @@
 namespace App\Presenters;
 
 use Nette\Application\UI\Presenter;
+use Nette\Application\UI\Form;
+use App\Renderers\PrettyFormRenderer;
 
 /**
  * Ancestor of all presenters.
@@ -39,5 +41,15 @@ abstract class BasePresenter extends Presenter
 		$this->flashMessage('You have been successfully logged out.');
 
 		$this->redirect(':Login:default');
+	}
+
+
+	protected function getForm()
+	{
+		$form = new Form;
+
+		$form->setRenderer(new PrettyFormRenderer);
+
+		return $form;
 	}
 }
