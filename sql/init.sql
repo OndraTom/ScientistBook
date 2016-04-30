@@ -36,8 +36,8 @@ CREATE TABLE `education` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `education` (`id`, `user_id`, `title`, `full_title`, `graduation_year`, `place`) VALUES
-(1,	1,	'tajtl',	'fujtajtl',	NULL,	'placek'),
-(2,	1,	'adsf',	'adsf',	2016,	'adsf');
+(1,	1,	'tajtlaaa',	'fujtajtl',	2015,	'placek'),
+(2,	1,	'gogo',	'adsf',	2016,	'adsf');
 
 DROP TABLE IF EXISTS `interests`;
 CREATE TABLE `interests` (
@@ -50,7 +50,10 @@ CREATE TABLE `interests` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `interests` (`id`, `user_id`, `title`) VALUES
-(1,	1,	'interesta');
+(1,	1,	'interesta'),
+(2,	1,	'dasf'),
+(3,	1,	'asdfasdf'),
+(4,	1,	'asdfadsf');
 
 DROP TABLE IF EXISTS `photos`;
 CREATE TABLE `photos` (
@@ -58,10 +61,24 @@ CREATE TABLE `photos` (
   `user_id` int(11) NOT NULL,
   `name` varchar(32) COLLATE utf8_czech_ci NOT NULL,
   `path` varchar(512) COLLATE utf8_czech_ci NOT NULL,
+  `relative_path` varchar(512) COLLATE utf8_czech_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `photos_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+INSERT INTO `photos` (`id`, `user_id`, `name`, `path`, `relative_path`) VALUES
+(44,	1,	'photo_5724f2042c84f.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f2042c84f.jpg',	'/galleries/1/photo_5724f2042c84f.jpg'),
+(47,	1,	'photo_5724f3bd82d16.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bd82d16.jpg',	'/galleries/1/photo_5724f3bd82d16.jpg'),
+(48,	1,	'photo_5724f3bd8eb54.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bd8eb54.jpg',	'/galleries/1/photo_5724f3bd8eb54.jpg'),
+(49,	1,	'photo_5724f3bd99e54.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bd99e54.jpg',	'/galleries/1/photo_5724f3bd99e54.jpg'),
+(50,	1,	'photo_5724f3bdb2cb1.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bdb2cb1.jpg',	'/galleries/1/photo_5724f3bdb2cb1.jpg'),
+(51,	1,	'photo_5724f3bdc5012.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bdc5012.jpg',	'/galleries/1/photo_5724f3bdc5012.jpg'),
+(52,	1,	'photo_5724f3bdd0363.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bdd0363.jpg',	'/galleries/1/photo_5724f3bdd0363.jpg'),
+(53,	1,	'photo_5724f3bdd7397.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bdd7397.jpg',	'/galleries/1/photo_5724f3bdd7397.jpg'),
+(54,	1,	'photo_5724f3bde9767.JPG',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bde9767.JPG',	'/galleries/1/photo_5724f3bde9767.JPG'),
+(55,	1,	'photo_5724f3be00777.JPG',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3be00777.JPG',	'/galleries/1/photo_5724f3be00777.JPG'),
+(56,	1,	'photo_5724f3be09e52.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3be09e52.jpg',	'/galleries/1/photo_5724f3be09e52.jpg');
 
 DROP TABLE IF EXISTS `positions`;
 CREATE TABLE `positions` (
@@ -78,7 +95,7 @@ CREATE TABLE `positions` (
 
 INSERT INTO `positions` (`id`, `user_id`, `title`, `place`, `year_from`, `year_to`) VALUES
 (1,	1,	'position',	'placek',	2012,	2014),
-(2,	1,	'asdf',	'adsf',	1950,	NULL),
+(2,	1,	'asdf',	'adsf',	1950,	0),
 (3,	1,	'asdfasdf',	'asdfasdf',	1950,	2015),
 (4,	1,	'aaaaa',	'asdfasdf',	2015,	NULL);
 
@@ -116,7 +133,7 @@ CREATE TABLE `publications` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `publications` (`id`, `user_id`, `type_id`, `title`, `co_authors`, `paper_name`, `abstract`, `year`, `link`) VALUES
-(1,	1,	1,	'jounar',	'cotor',	'papir',	'abstraktek',	1234,	'');
+(1,	1,	3,	'jounar',	'cotor',	'papir',	'abstraktek',	2015,	NULL);
 
 DROP TABLE IF EXISTS `publication_types`;
 CREATE TABLE `publication_types` (
@@ -145,7 +162,7 @@ CREATE TABLE `teaching` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `teaching` (`id`, `user_id`, `title`, `description`, `year_from`, `year_to`) VALUES
-(1,	1,	'teaching',	'descr',	4564,	NULL);
+(1,	1,	'teaching',	'descr',	4564,	0);
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -163,9 +180,10 @@ CREATE TABLE `users` (
   `skype` varchar(64) COLLATE utf8_czech_ci DEFAULT NULL,
   `twitter` varchar(64) COLLATE utf8_czech_ci DEFAULT NULL,
   `linked_in` varchar(64) COLLATE utf8_czech_ci DEFAULT NULL,
+  `gravatar_email` varchar(128) COLLATE utf8_czech_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
-INSERT INTO `users` (`id`, `login`, `password`, `name`, `surname`, `bio`, `facility`, `research_summary`, `contact_info`, `phone`, `mail`, `skype`, `twitter`, `linked_in`) VALUES
-(1,	'admin',	'aba74e0e50ac8e433a33fc23c9e4f828f6f5a622',	'Ondřej',	'Tom',	'bio jak brnooo',	'faca',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL);
+INSERT INTO `users` (`id`, `login`, `password`, `name`, `surname`, `bio`, `facility`, `research_summary`, `contact_info`, `phone`, `mail`, `skype`, `twitter`, `linked_in`, `gravatar_email`) VALUES
+(1,	'admin',	'aba74e0e50ac8e433a33fc23c9e4f828f6f5a622',	'Ondřej',	'Tom',	'bio jak brnooo',	'faca',	NULL,	NULL,	NULL,	'info@ondratom.cz',	NULL,	NULL,	NULL,	NULL);
