@@ -11,19 +11,7 @@
 	<body>
 		<div id="content">
 			<header>
-				<nav id="left-nav">
-					<a n:href="Homepage:default">Homepage</a>
-					<a n:href=":Front:Homepage:default">Front</a>
-				</nav>
-
-				<nav id="right-nav">
-					{if $user->isLoggedIn()}
-						<a n:href=":Admin:About:default">Administration</a>
-						<a n:href="logout!">Log-out</a>
-					{else}
-						<a n:href="Login:default">Log-in</a>
-					{/if}
-				</nav>
+				{control navigation}
 			</header>
 
 			<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>

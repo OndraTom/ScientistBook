@@ -5,6 +5,7 @@ namespace App\Presenters;
 use Nette\Application\UI\Presenter;
 use Nette\Application\UI\Form;
 use App\Renderers\PrettyFormRenderer;
+use App\Components\Navigation;
 
 /**
  * Ancestor of all presenters.
@@ -18,6 +19,16 @@ abstract class BasePresenter extends Presenter
 	 */
 	const MESSAGE_TYPE_INFO		= 'info';
 	const MESSAGE_TYPE_ERROR	= 'error';
+
+
+	protected $navigationLeft = [
+		'Front:Homepage:default' => 'Homepage - front'
+	];
+
+
+	protected $navigationRight = [
+		'Login:default' => 'Log-in'
+	];
 
 
 	/**
@@ -51,5 +62,11 @@ abstract class BasePresenter extends Presenter
 		$form->setRenderer(new PrettyFormRenderer);
 
 		return $form;
+	}
+
+
+	protected function createComponentNavigation()
+	{
+		return new Navigation($this, $this->navigationLeft, $this->navigationRight);
 	}
 }

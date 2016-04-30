@@ -13,6 +13,17 @@ use App\Renderers\PrettyFormRenderer;
  */
 class LoginPresenter extends BasePresenter
 {
+	public function startup()
+	{
+		parent::startup();
+
+		if ($this->user->isLoggedIn())
+		{
+			$this->redirect(':Admin:About:default');
+		}
+	}
+
+
 	protected function createComponentLoginForm()
 	{
 		$form = new Form;
@@ -43,7 +54,7 @@ class LoginPresenter extends BasePresenter
 
 			$this->flashMessage('You have been successfully signed up.');
 
-			$this->redirect('Homepage:default');
+			$this->redirect(':Admin:About:default');
 		}
 		catch (Security\AuthenticationException $e)
 		{

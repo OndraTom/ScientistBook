@@ -27,3 +27,26 @@ form.main-center {
 .items-list.gallery .list-item img {
 	max-width: 150px;
 }
+
+nav a {
+	color: #337ab7;
+	text-decoration: none;
+	display: block;
+	padding: 10px 15px;
+	border-radius: 4px;
+	background-color: transparent;
+	text-align: center;
+}
+
+nav .nav-item.selected a, nav a:hover {
+	background-color: #337ab7;
+	color: #fff;
+}
+
+nav .nav-item {
+	float: left;
+}
+
+nav .nav-item:not(:first-child) {
+	margin-left: 5px;
+}

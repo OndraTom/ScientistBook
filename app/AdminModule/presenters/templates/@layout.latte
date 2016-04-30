@@ -13,22 +13,7 @@
 	<body>
 		<div id="content">
 			<header>
-				<nav id="left-nav">
-					<a n:href="About:default">About</a>
-					<a n:href="Education:default">Education</a>
-					<a n:href="Positions:default">Positions</a>
-					<a n:href="Awards:default">Awards</a>
-					<a n:href="Interests:default">Interests</a>
-					<a n:href="Projects:default">Projects</a>
-					<a n:href="Publications:default">Publications</a>
-					<a n:href="Teaching:default">Teaching</a>
-					<a n:href="Gallery:default">Gallery</a>
-				</nav>
-
-				<nav id="right-nav">
-					<a n:href=":Homepage:default">Homek</a>
-					<a n:href="logout!">Log-out</a>
-				</nav>
+				{control navigation}
 			</header>
 
 			<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
