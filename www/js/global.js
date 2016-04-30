@@ -26,4 +26,8 @@ $(function() {
 		showDialog(dialogElement);
 	});
 
+	$('a.confirm').click(function() {
+		return confirm('Are you sure?');
+	});
+
 });

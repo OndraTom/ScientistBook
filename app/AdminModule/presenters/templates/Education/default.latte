@@ -3,7 +3,7 @@
 <h1>Education</h1>
 
 <div n:foreach="$items as $item">
-	<a class="ajax" n:href="editItem! $item->id">{$item->title}</a> | <a n:href="deleteItem! $item->id">Delete</a>
+	<a class="ajax" n:href="editItem! $item->id">{$item->title}</a> | <a class="confirm" n:href="deleteItem! $item->id">Delete</a>
 </div>
 
 <button data-dialog="edit-dialog" class="dialog-trigger">New Education</button>

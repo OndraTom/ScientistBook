@@ -3,7 +3,7 @@
 <h1>Gallery</h1>
 
 <div n:foreach="$items as $item">
-	{$item->name} | <a n:href="deletePhoto! $item->id">Delete</a>
+	{$item->name} | <a class="confirm" n:href="deletePhoto! $item->id">Delete</a>
 </div>
 
 <button data-dialog="edit-dialog" class="dialog-trigger">Add Photos</button>
