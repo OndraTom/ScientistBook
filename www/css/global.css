@@ -9,6 +9,11 @@ body {
 	font-weight: 500;
 }
 
+a {
+	text-decoration: none;
+	color: #337ab7;
+}
+
 #content {
 	margin-top: 20px;
 }
@@ -166,4 +171,18 @@ form .button {
 	font-size: 2em;
 	padding: 0 0 2em;
 	margin: 0;
+}
+
+.confirm {
+	color: #d9534f;
+}
+
+.items-list {
+	max-width: 400px;
+	margin: auto;
+	text-align: center;
+}
+
+.list-item {
+	margin-bottom: 15px;
 }

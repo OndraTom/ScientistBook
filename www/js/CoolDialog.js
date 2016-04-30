@@ -24,8 +24,11 @@ $(window).load(function() {
 			self.toggle();
 		});
 
-		this.dialogOverlay.click(function() {
-			self.toggle();
+		this.dialogOverlay.click(function(e) {
+			if ($(e.target).attr('class') === 'dialog-overlay')
+			{
+				self.toggle();
+			}
 		});
 
 		$(document).keyup(function(e) {

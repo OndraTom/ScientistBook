@@ -18,7 +18,7 @@ class GalleryPresenter extends CommonItemsPresenter
 
 	protected function createComponentPhotosForm()
 	{
-		$form = $this->getForm();
+		$form = $this->getForm(false);
 
 		$form->addMultiUpload('photos', 'Photos')
 				->setRequired();

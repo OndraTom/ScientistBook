@@ -82,13 +82,16 @@ abstract class CommonItemsPresenter extends BasePresenter
 	}
 
 
-	protected function getForm()
+	protected function getForm($useDefaultSubmit = true)
 	{
 		$form = parent::getForm();
 
 		$form->addHidden('id');
 
-		$form->onSuccess[] = $this->itemFormSubmitted;
+		if ($useDefaultSubmit)
+		{
+			$form->onSuccess[] = $this->itemFormSubmitted;
+		}
 
 		return $form;
 	}

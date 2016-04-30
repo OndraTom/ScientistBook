@@ -20,6 +20,9 @@ class GalleryModel extends BaseModel
 	protected $galleriesDir = __DIR__ . '/../../www/galleries/';
 
 
+	protected $galleriesDirRelative = '/galleries/';
+
+
 	protected function createGalleryDir($galleryDir)
 	{
 		if (!file_exists($galleryDir))
@@ -53,9 +56,10 @@ class GalleryModel extends BaseModel
 
 	protected function uploadPhoto($userId, $galleryDir, FileUpload $photo)
 	{
-		$fileExtension	= pathinfo($photo->getName(), PATHINFO_EXTENSION);
-		$photoName		= uniqid('photo_') . '.' . $fileExtension;
-		$photoPath		= $galleryDir . $photoName;
+		$fileExtension		= pathinfo($photo->getName(), PATHINFO_EXTENSION);
+		$photoName			= uniqid('photo_') . '.' . $fileExtension;
+		$photoPath			= $galleryDir . $photoName;
+		$photoRelativePath	= $this->galleriesDirRelative . $userId . '/' . $photoName;
 
 		if (copy($photo->getTemporaryFile(), $photoPath) === false)
 		{
@@ -63,9 +67,10 @@ class GalleryModel extends BaseModel
 		}
 
 		$this->insert([
-			'user_id'	=> $userId,
-			'name'		=> $photoName,
-			'path'		=> $photoPath
+			'user_id'		=> $userId,
+			'name'			=> $photoName,
+			'path'			=> $photoPath,
+			'relative_path'	=> $photoRelativePath
 		]);
 	}
 

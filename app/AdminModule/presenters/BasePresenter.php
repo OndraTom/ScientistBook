@@ -23,9 +23,12 @@ abstract class BasePresenter extends \App\Presenters\BasePresenter
 	{
 		foreach ($values as $key => $value)
 		{
-			if (trim($value) == '')
+			if (!is_array($value))
 			{
-				$values[$key] = null;
+				if (trim($value) == '')
+				{
+					$values[$key] = null;
+				}
 			}
 		}
 	}

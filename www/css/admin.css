@@ -6,3 +6,24 @@ form.main-center {
 	max-width: 500px;
 	margin: auto;
 }
+
+.items-list.gallery {
+	max-width: 800px;
+}
+
+.items-list.gallery .pictures {
+	overflow: hidden;
+	clear: both;
+}
+
+.items-list.gallery .list-item {
+	float: left;
+}
+
+.items-list.gallery .list-item:not(:first-child) {
+	margin-left: 10px;
+}
+
+.items-list.gallery .list-item img {
+	max-width: 150px;
+}

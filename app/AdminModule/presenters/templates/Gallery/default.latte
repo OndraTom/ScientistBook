@@ -2,11 +2,20 @@
 
 <h1>Gallery</h1>
 
-<div n:foreach="$items as $item">
-	{$item->name} | <a class="confirm" n:href="deletePhoto! $item->id">Delete</a>
-</div>
+<div class="items-list gallery">
+	<div class="pictures">
+		<div class="list-item" n:foreach="$items as $item">
+			<div class="image">
+				<img src="{$basePath}{$item->relative_path}" alt="{$item->name}" />
+			</div>
+			<div class="action">
+				<a class="confirm" n:href="deletePhoto! $item->id">Delete</a>
+			</div>
+		</div>
+	</div>
 
-<button data-dialog="edit-dialog" class="dialog-trigger">Add Photos</button>
+	<button data-dialog="edit-dialog" class="dialog-trigger">Add Photos</button>
+</div>
 
 {snippet editDialog}
 	{control photosForm}
