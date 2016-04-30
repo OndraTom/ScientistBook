@@ -2,8 +2,9 @@
 
 namespace App\Presenters;
 
-use Nette\Application\UI\Form,
-	Nette\Security;
+use Nette\Application\UI\Form;
+use	Nette\Security;
+use App\Renderers\PrettyFormRenderer;
 
 /**
  *
@@ -27,6 +28,8 @@ class LoginPresenter extends BasePresenter
 		$form->onSuccess[] = $this->loginFormSubmitted;
 
 		$form->addProtection();
+
+		$form->setRenderer(new PrettyFormRenderer);
 
 		return $form;
 	}

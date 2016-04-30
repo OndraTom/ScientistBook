@@ -186,3 +186,28 @@ form .button {
 .list-item {
 	margin-bottom: 15px;
 }
+
+.flash {
+	text-align: center;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	padding: 15px;
+}
+
+.flash.info {
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	color: #3c763d;
+}
+
+.flash.error {
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	color: #a94442;
+}
+
+#login {
+	max-width: 200px;
+	margin: auto;
+	text-align: center;
+}
