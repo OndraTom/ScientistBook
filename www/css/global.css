@@ -132,6 +132,7 @@ form .button {
 	transition: opacity 0.3s;
 	-webkit-backface-visibility: hidden;
 	height: 100%;
+	overflow-x: scroll;
 }
 
 .dialog--open .dialog-overlay {
@@ -149,6 +150,10 @@ form .button {
 	position: relative;
 	z-index: 5;
 	opacity: 0;
+	margin: auto;
+	border-radius: 6px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .dialog--open .dialog-content {
