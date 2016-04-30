@@ -3,7 +3,7 @@
 namespace App\AdminModule\Presenters;
 
 use App\Models\InterestsModel;
-use Nette\Application\UI\Form;
+use App\Components\DialogForm;
 
 class InterestsPresenter extends CommonItemsPresenter
 {
@@ -15,7 +15,7 @@ class InterestsPresenter extends CommonItemsPresenter
 
 	protected function createComponentInterestForm()
 	{
-		$form = new Form;
+		$form = $this->getForm();
 
 		$form->addText('title', 'Title:')
 				->setRequired();
@@ -24,6 +24,11 @@ class InterestsPresenter extends CommonItemsPresenter
 
 		$form->onSuccess[] = $this->itemFormSubmitted;
 
-		return $form;
+		if (isset($this->selectedItem))
+		{
+			$form->setDefaults($this->selectedItem);
+		}
+
+		return new DialogForm($form, 'Edit Interest', isset($this->selectedItem));
 	}
 }

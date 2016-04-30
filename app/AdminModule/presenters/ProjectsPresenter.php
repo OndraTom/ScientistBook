@@ -3,7 +3,7 @@
 namespace App\AdminModule\Presenters;
 
 use App\Models\ProjectsModel;
-use Nette\Application\UI\Form;
+use App\Components\DialogForm;
 
 class ProjectsPresenter extends CommonItemsPresenter
 {
@@ -15,7 +15,7 @@ class ProjectsPresenter extends CommonItemsPresenter
 
 	protected function createComponentProjectForm()
 	{
-		$form = new Form;
+		$form = $this->getForm();
 
 		$form->addText('title', 'Title:')
 				->setRequired();
@@ -30,6 +30,11 @@ class ProjectsPresenter extends CommonItemsPresenter
 
 		$form->onSuccess[] = $this->itemFormSubmitted;
 
-		return $form;
+		if (isset($this->selectedItem))
+		{
+			$form->setDefaults($this->selectedItem);
+		}
+
+		return new DialogForm($form, 'Edit Project', isset($this->selectedItem));
 	}
 }

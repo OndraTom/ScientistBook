@@ -1,0 +1,14 @@
+<div class="dialog" id="edit-dialog">
+	<div class="dialog-overlay"></div>
+	<div class="dialog-content">
+		<h2>{$header}</h2>
+
+		{control editForm}
+	</div>
+
+	{if $envokeDialog}
+		<script>
+			showDialog($('#edit-dialog'));
+		</script>
+	{/if}
+</div>

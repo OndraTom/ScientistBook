@@ -4,6 +4,7 @@ namespace App\AdminModule\Presenters;
 
 use App\Models\PublicationsModel;
 use Nette\Application\UI\Form;
+use App\Components\DialogForm;
 
 class PublicationsPresenter extends CommonItemsPresenter
 {
@@ -15,7 +16,7 @@ class PublicationsPresenter extends CommonItemsPresenter
 
 	protected function createComponentPublicationForm()
 	{
-		$form = new Form;
+		$form = $this->getForm();
 
 		$form->addSelect('type_id', 'Publication type:', $this->model->getPublicationTypesList())
 				->setRequired();
@@ -42,6 +43,11 @@ class PublicationsPresenter extends CommonItemsPresenter
 
 		$form->onSuccess[] = $this->itemFormSubmitted;
 
-		return $form;
+		if (isset($this->selectedItem))
+		{
+			$form->setDefaults($this->selectedItem);
+		}
+
+		return new DialogForm($form, 'Edit Publication', isset($this->selectedItem));
 	}
 }

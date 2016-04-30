@@ -4,6 +4,7 @@ namespace App\AdminModule\Presenters;
 
 use App\Models\EducationModel;
 use Nette\Application\UI\Form;
+use App\Components\DialogForm;
 
 class EducationPresenter extends CommonItemsPresenter
 {
@@ -30,17 +31,15 @@ class EducationPresenter extends CommonItemsPresenter
 		$form->addText('place', 'Place:')
 				->setRequired();
 
-		$form->addHidden('id');
-
 		$form->addSubmit('save', 'Save');
+
+		$form->onSuccess[] = $this->itemFormSubmitted;
 
 		if (isset($this->selectedItem))
 		{
 			$form->setDefaults($this->selectedItem);
 		}
 
-		$form->onSuccess[] = $this->itemFormSubmitted;
-
-		return $form;
+		return new DialogForm($form, 'Edit Education', isset($this->selectedItem));
 	}
 }

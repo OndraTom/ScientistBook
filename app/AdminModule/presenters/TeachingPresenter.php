@@ -4,6 +4,7 @@ namespace App\AdminModule\Presenters;
 
 use App\Models\TeachingModel;
 use Nette\Application\UI\Form;
+use App\Components\DialogForm;
 
 class TeachingPresenter extends CommonItemsPresenter
 {
@@ -15,7 +16,7 @@ class TeachingPresenter extends CommonItemsPresenter
 
 	protected function createComponentTeachingForm()
 	{
-		$form = new Form;
+		$form = $this->getForm();
 
 		$form->addText('title', 'Title:')
 				->setRequired();
@@ -35,6 +36,11 @@ class TeachingPresenter extends CommonItemsPresenter
 
 		$form->onSuccess[] = $this->itemFormSubmitted;
 
-		return $form;
+		if (isset($this->selectedItem))
+		{
+			$form->setDefaults($this->selectedItem);
+		}
+
+		return new DialogForm($form, 'Edit Teaching', isset($this->selectedItem));
 	}
 }

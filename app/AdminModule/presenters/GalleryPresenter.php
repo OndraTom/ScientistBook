@@ -6,6 +6,7 @@ use App\Models\GalleryModel;
 use Nette\Application\UI\Form;
 use Nette\Utils\ArrayHash;
 use Exception;
+use App\Components\DialogForm;
 
 class GalleryPresenter extends CommonItemsPresenter
 {
@@ -17,7 +18,7 @@ class GalleryPresenter extends CommonItemsPresenter
 
 	protected function createComponentPhotosForm()
 	{
-		$form = new Form;
+		$form = $this->getForm();
 
 		$form->addMultiUpload('photos', 'Photos')
 				->setRequired();
@@ -26,7 +27,12 @@ class GalleryPresenter extends CommonItemsPresenter
 
 		$form->onSuccess[] = $this->photosFormSubmitted;
 
-		return $form;
+		if (isset($this->selectedItem))
+		{
+			$form->setDefaults($this->selectedItem);
+		}
+
+		return new DialogForm($form, 'Add Photos', false);
 	}
 
 

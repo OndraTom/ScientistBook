@@ -34,7 +34,7 @@ label {
     max-width: 100%;
 }
 
-input, textarea {
+input, textarea, select {
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
@@ -116,6 +116,7 @@ form .button {
 	-webkit-justify-content: center;
 	justify-content: center;
 	pointer-events: none;
+	overflow-x: scroll;
 }
 
 .dialog-overlay {
@@ -126,6 +127,7 @@ form .button {
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
 	-webkit-backface-visibility: hidden;
+	height: 100%;
 }
 
 .dialog--open .dialog-overlay {

@@ -9,22 +9,5 @@
 <button data-dialog="edit-dialog" class="dialog-trigger">New Education</button>
 
 {snippet editDialog}
-	<div class="dialog" id="edit-dialog">
-		<div class="dialog-overlay"></div>
-		<div class="dialog-content">
-			<h2>Edit Education</h2>
-
-			{control educationForm}
-
-	<!--		<div>
-				<button class="action" data-dialog-close>Close</button>
-			</div>-->
-		</div>
-	</div>
-
-	{if $isItemSelected}
-		<script>
-			showDialog($('#edit-dialog'));
-		</script>
-	{/if}
+	{control educationForm}
 {/snippet}

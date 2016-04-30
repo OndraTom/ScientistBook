@@ -4,6 +4,7 @@ namespace App\AdminModule\Presenters;
 
 use App\Models\PositionsModel;
 use Nette\Application\UI\Form;
+use App\Components\DialogForm;
 
 class PositionsPresenter extends CommonItemsPresenter
 {
@@ -15,7 +16,7 @@ class PositionsPresenter extends CommonItemsPresenter
 
 	protected function createComponentPositionForm()
 	{
-		$form = new Form;
+		$form = $this->getForm();
 
 		$form->addText('title', 'Title:')
 				->setRequired();
@@ -35,6 +36,11 @@ class PositionsPresenter extends CommonItemsPresenter
 
 		$form->onSuccess[] = $this->itemFormSubmitted;
 
-		return $form;
+		if (isset($this->selectedItem))
+		{
+			$form->setDefaults($this->selectedItem);
+		}
+
+		return new DialogForm($form, 'Edit Position', isset($this->selectedItem));
 	}
 }

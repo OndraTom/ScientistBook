@@ -4,6 +4,7 @@ namespace App\AdminModule\Presenters;
 
 use App\Models\AwardsModel;
 use Nette\Application\UI\Form;
+use App\Components\DialogForm;
 
 class AwardsPresenter extends CommonItemsPresenter
 {
@@ -15,7 +16,7 @@ class AwardsPresenter extends CommonItemsPresenter
 
 	protected function createComponentAwardForm()
 	{
-		$form = new Form;
+		$form = $this->getForm();
 
 		$form->addText('year', 'Year:')
 				->setRequired();
@@ -30,6 +31,11 @@ class AwardsPresenter extends CommonItemsPresenter
 
 		$form->onSuccess[] = $this->itemFormSubmitted;
 
-		return $form;
+		if (isset($this->selectedItem))
+		{
+			$form->setDefaults($this->selectedItem);
+		}
+
+		return new DialogForm($form, 'Edit Award', isset($this->selectedItem));
 	}
 }

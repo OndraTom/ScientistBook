@@ -10,7 +10,7 @@ function clearElementFormsValues(element)
 	var form = element.find('form');
 
 	form.find('input[type=text], input[name=id], textarea').val('');
-	form.find('option[selected=selected]').removeAttr('selected');
+	form.find('option:selected').removeAttr('selected');
 }
 
 $(function() {

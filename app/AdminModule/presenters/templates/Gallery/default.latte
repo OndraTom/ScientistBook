@@ -6,4 +6,8 @@
 	{$item->name} | <a n:href="deletePhoto! $item->id">Delete</a>
 </div>
 
-{control photosForm}
+<button data-dialog="edit-dialog" class="dialog-trigger">Add Photos</button>
+
+{snippet editDialog}
+	{control photosForm}
+{/snippet}

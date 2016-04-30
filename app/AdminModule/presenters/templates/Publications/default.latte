@@ -3,7 +3,11 @@
 <h1>Publications</h1>
 
 <div n:foreach="$items as $item">
-	{$item->title} | <a n:href="deleteItem! $item->id">Delete</a>
+	<a class="ajax" n:href="editItem! $item->id">{$item->title}</a> | <a n:href="deleteItem! $item->id">Delete</a>
 </div>
 
-{control publicationForm}
+<button data-dialog="edit-dialog" class="dialog-trigger">New Publication</button>
+
+{snippet editDialog}
+	{control publicationForm}
+{/snippet}

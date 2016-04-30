@@ -80,4 +80,16 @@ abstract class CommonItemsPresenter extends BasePresenter
 
 		$this->redrawControl('editDialog');
 	}
+
+
+	protected function getForm()
+	{
+		$form = parent::getForm();
+
+		$form->addHidden('id');
+
+		$form->onSuccess[] = $this->itemFormSubmitted;
+
+		return $form;
+	}
 }
