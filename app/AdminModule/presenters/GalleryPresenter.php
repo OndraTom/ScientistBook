@@ -21,7 +21,8 @@ class GalleryPresenter extends CommonItemsPresenter
 		$form = $this->getForm(false);
 
 		$form->addMultiUpload('photos', 'Photos')
-				->setRequired();
+				->setRequired()
+				->addRule(Form::IMAGE, 'Invalid file extension detected.');
 
 		$form->addSubmit('save', 'Upload');
 
