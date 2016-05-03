@@ -2,4 +2,38 @@
 
 {block profileContent}
 
-Profile content
+<section>
+	<h2>Bio</h2>
+	
+	<p>{$scientist->bio}</p>
+</section>
+
+<section>
+	<h3>Positions</h3>
+	
+	{foreach $positions as $position}
+		<div class="position">
+			{$position->title}
+		</div>
+	{/foreach}
+</section>
+
+<section>
+	<h3>Education & teaching</h3>
+	
+	{foreach $educations as $education}
+		<div class="education">
+			{$education->title}
+		</div>
+	{/foreach}
+</section>
+
+<section>
+	<h3>Honors, Awards and Grants</h3>
+	
+	{foreach $awards as $award}
+		<div class="award">
+			{$award->title}
+		</div>
+	{/foreach}
+</section>

@@ -2,4 +2,12 @@
 
 {block profileContent}
 
-Gallery
+<section class="gallery">
+	<h2>Gallery</h2>
+	
+	{foreach $photos as $photo}
+		<div class="photo">
+			<img src="{$basePath}{$photo->relative_path}" alt="{$photo->name}" />
+		</div>
+	{/foreach}
+</section>

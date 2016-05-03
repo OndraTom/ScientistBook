@@ -10,7 +10,7 @@
 	</head>
 
 	<body>
-		<div id="content">
+		<section id="content">
 			<header>
 				{block nav}
 					<nav id="right-nav">
@@ -27,7 +27,11 @@
 			<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 			{include content}
-		</div>
+		</section>
+		
+		<footer>
+			Footer
+		</footer>
 
 		{block scripts}
 			<script src="{$basePath}/js/netteForms.min.js"></script>

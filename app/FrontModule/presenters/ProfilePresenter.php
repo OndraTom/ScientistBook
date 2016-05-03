@@ -10,6 +10,30 @@ class ProfilePresenter extends BasePresenter
 	protected $usersModel;
 	
 	
+	protected $positionsModel;
+	
+	
+	protected $educationModel;
+	
+	
+	protected $awardsModel;
+	
+	
+	protected $interestsModel;
+	
+	
+	protected $projectsModel;
+	
+	
+	protected $publicationsModel;
+	
+	
+	protected $teachingModel;
+	
+	
+	protected $galleryModel;
+	
+	
 	protected $scientist;
 	
 	
@@ -24,10 +48,26 @@ class ProfilePresenter extends BasePresenter
 	
 	
 	public function __construct(
-		Models\UsersModel $usersModel
+		Models\UsersModel			$usersModel,
+		Models\PositionsModel		$positionsModel,
+		Models\EducationModel		$educationModel,
+		Models\AwardsModel			$awardsModel,
+		Models\InterestsModel		$interestsModel,
+		Models\ProjectsModel		$projectsModel,
+		Models\PublicationsModel	$publicationsModel,
+		Models\TeachingModel		$teachingModel,
+		Models\GalleryModel			$galleryModel
 	)
 	{
-		$this->usersModel = $usersModel;
+		$this->usersModel			= $usersModel;
+		$this->positionsModel		= $positionsModel;
+		$this->educationModel		= $educationModel;
+		$this->awardsModel			= $awardsModel;
+		$this->interestsModel		= $interestsModel;
+		$this->projectsModel		= $projectsModel;
+		$this->publicationsModel	= $publicationsModel;
+		$this->teachingModel		= $teachingModel;
+		$this->galleryModel			= $galleryModel;
 	}
 	
 	
@@ -72,9 +112,24 @@ class ProfilePresenter extends BasePresenter
 	}
 	
 	
+	public function renderDefault()
+	{
+		$this->template->positions	= $this->positionsModel->findBy(['user_id' => $this->scientist->id]);
+		$this->template->educations = $this->educationModel->findBy(['user_id' => $this->scientist->id]);
+		$this->template->awards		= $this->awardsModel->findBy(['user_id' => $this->scientist->id]);
+	}
+	
+	
 	public function actionResearch($userId)
 	{
 		$this->loadUser($userId);
+	}
+	
+	
+	public function renderResearch($userId)
+	{
+		$this->template->interests	= $this->interestsModel->findBy(['user_id' => $this->scientist->id]);
+		$this->template->projects	= $this->projectsModel->findBy(['user_id' => $this->scientist->id]);
 	}
 	
 	
@@ -84,15 +139,33 @@ class ProfilePresenter extends BasePresenter
 	}
 	
 	
+	public function renderPublications()
+	{
+		$this->template->publications = $this->publicationsModel->findBy(['user_id' => $this->scientist->id]);
+	}
+	
+	
 	public function actionTeaching($userId)
 	{
 		$this->loadUser($userId);
 	}
 	
 	
+	public function renderTeaching()
+	{
+		$this->template->teachings = $this->teachingModel->findBy(['user_id' => $this->scientist->id]);
+	}
+	
+	
 	public function actionGallery($userId)
 	{
 		$this->loadUser($userId);
+	}
+	
+	
+	public function renderGallery()
+	{
+		$this->template->photos = $this->galleryModel->findBy(['user_id' => $this->scientist->id]);
 	}
 	
 	

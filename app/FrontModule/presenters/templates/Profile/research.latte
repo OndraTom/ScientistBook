@@ -2,4 +2,26 @@
 
 {block profileContent}
 
-Research
+<section>
+	<h2>Research summary</h2>
+	
+	<p>{$scientist->research_summary}</p>
+	
+	<h4>Interests</h4>
+	
+	{foreach $interests as $interest}
+		<div class="interest">
+			{$interest->title}
+		</div>
+	{/foreach}
+</section>
+
+<section>
+	<h3>Research projects</h3>
+	
+	{foreach $projects as $project}
+		<div class="project">
+			{$project->title}
+		</div>
+	{/foreach}
+</section>

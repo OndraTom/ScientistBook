@@ -2,4 +2,12 @@
 
 {block profileContent}
 
-Publications
+<section>
+	<h2>Selected publications</h2>
+	
+	{foreach $publications as $publication}
+		<div class="publication">
+			{$publication->title}
+		</div>
+	{/foreach}
+</section>

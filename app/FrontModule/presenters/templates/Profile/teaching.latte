@@ -2,4 +2,12 @@
 
 {block profileContent}
 
-Teaching
+<section>
+	<h2>Teaching</h2>
+	
+	{foreach $teachings as $teaching}
+		<div class="teaching">
+			{$teaching->title}
+		</div>
+	{/foreach}
+</section>
