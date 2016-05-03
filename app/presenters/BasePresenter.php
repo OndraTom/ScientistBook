@@ -21,12 +21,7 @@ abstract class BasePresenter extends Presenter
 	const MESSAGE_TYPE_ERROR	= 'error';
 
 
-	protected $navigationLeft = [
-		'Front:Homepage:default' => 'Homepage - front'
-	];
-
-
-	protected $navigationRight = [
+	protected $navigationItems = [
 		'Login:default' => 'Log-in'
 	];
 
@@ -67,6 +62,6 @@ abstract class BasePresenter extends Presenter
 
 	protected function createComponentNavigation()
 	{
-		return new Navigation($this, $this->navigationLeft, $this->navigationRight);
+		return new Navigation($this, $this->navigationItems, 'right-nav');
 	}
 }

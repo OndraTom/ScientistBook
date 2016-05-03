@@ -1,15 +1,5 @@
-{if !empty($leftNav)}
-	<nav id="left-nav">
-		{foreach $leftNav as $navItem}
-			{$navItem->getHtml()|noescape}
-		{/foreach}
-	</nav>
-{/if}
-
-{if !empty($rightNav)}
-	<nav id="right-nav">
-		{foreach $rightNav as $navItem}
-			{$navItem->getHtml()|noescape}
-		{/foreach}
-	</nav>
-{/if}
+<nav{if isset($navId)} id="{$navId}"{/if}>
+	{foreach $navItems as $navItem}
+		{$navItem->getHtml()|noescape}
+	{/foreach}
+</nav>

@@ -1,3 +1,17 @@
 {block content}
 
-homepage - front
+{control findScientistForm}
+
+{if isset($foundUsers)}
+	<div id="found-users">
+		{if empty($foundUsers)}
+			<div>Nothing found.</div>
+		{else}
+			{foreach $foundUsers as $user}
+				<div class="user">
+					<a n:href="Profile:default $user->id">{$user->name} {$user->surname}</a>
+				</div>
+			{/foreach}
+		{/if}
+	</div>
+{/if}

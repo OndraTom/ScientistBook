@@ -8,10 +8,6 @@ use Nette\Utils\ArrayHash;
 
 class AboutPresenter extends BasePresenter
 {
-	const GRAVATAR_URL = 'http://www.gravatar.com/avatar/';
-	const GRAVATAR_URL_PARAMS = '?d=mm&s=140';
-
-
 	protected $usersModel;
 
 
@@ -32,30 +28,13 @@ class AboutPresenter extends BasePresenter
 		parent::startup();
 
 		$this->userData		= $this->usersModel->findBy(['id' => $this->user->id])->fetch();
-		$this->gravatarLink = $this->getGravatarLink();
+		$this->gravatarLink = $this->usersModel->getGravatarLink($this->userData);
 	}
 
 
 	public function renderDefault()
 	{
 		$this->template->profilePicLink = $this->gravatarLink;
-	}
-
-
-	protected function getGravatarLink()
-	{
-		$email = '';
-
-		if ($this->userData->gravatar_email)
-		{
-			$email = $this->userData->gravatar_email;
-		}
-		else if ($this->userData->mail)
-		{
-			$email = $this->userData->mail;
-		}
-
-		return self::GRAVATAR_URL . md5($email) . self::GRAVATAR_URL_PARAMS;
 	}
 
 

@@ -1,0 +1,24 @@
+{layout '../@layout.latte'}
+
+{block content}
+
+<div id="profile-menu">
+	<div class="user-detail">
+		<div class="pic">
+			<img src="{$gravatarLink}" alt="gravatar" />
+		</div>
+		<div class="name">
+			{$scientist->name} {$scientist->surname}
+		</div>
+		<div class="facility">
+			{$scientist->facility}
+		</div>
+	</div>
+	<div class="navigation">
+		{control navigation}
+	</div>
+</div>
+
+<div id="profile-content">
+	{include profileContent}
+</div>

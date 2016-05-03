@@ -52,10 +52,16 @@ abstract class BasePresenter extends \App\Presenters\BasePresenter
 			}
 		}
 	}
-
-
-	protected function createComponentNavigation()
+	
+	
+	protected function createComponentLeftNavigation()
 	{
-		return new Navigation($this, $this->navigationLeft, $this->navigationRight);
+		return new Navigation($this, $this->navigationLeft, 'left-nav');
+	}
+
+
+	protected function createComponentRightNavigation()
+	{
+		return new Navigation($this, $this->navigationRight, 'right-nav');
 	}
 }

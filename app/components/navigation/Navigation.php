@@ -13,39 +13,28 @@ class Navigation extends Control
 	];
 
 
-	protected $leftNav;
-
-
-	protected $rightNav;
+	protected $navItems;
 
 
 	protected $presenter;
+	
+	
+	protected $currentLink;
+	
+	
+	protected $navId;
 
 
-	public function __construct(Presenter $presenter, array $leftItems, array $rightItems)
+	public function __construct(Presenter $presenter, array $navItems, $navId = null, $params = [])
 	{
 		$this->presenter	= $presenter;
-		$this->leftNav		= $this->getNavigation($leftItems);
-		$this->rightNav		= $this->getNavigation($rightItems);
+		$this->currentLink	= $this->getSanitizedLink($presenter->getName() . ':' . $presenter->getAction());
+		$this->navItems		= $this->getNavigation($navItems, $params);
+		$this->navId		= $navId;
 	}
-
-
-	protected function getNavigation(array $links)
-	{
-		$nav = [];
-
-		$presenter = $this->getPresenterFromLink($this->presenter->getName());
-
-		foreach ($links as $link => $title)
-		{
-			$nav[] = new NavigationItem($this->presenter->link($link), $title, $this->getPresenterFromLink($link) == $presenter);
-		}
-
-		return $nav;
-	}
-
-
-	protected function getPresenterFromLink($link)
+	
+	
+	protected function getSanitizedLink($link)
 	{
 		if (strpos($link, ':') === 0)
 		{
@@ -56,18 +45,31 @@ class Navigation extends Control
 		{
 			$link = str_replace($module . ':', '', $link);
 		}
+		
+		return $link;
+	}
 
-		$parts = explode(':', $link);
 
-		return array_shift($parts);
+	protected function getNavigation(array $links, array $linksParams = [])
+	{
+		$nav = [];
+
+		foreach ($links as $link => $title)
+		{
+			$itemParams = isset($linksParams[$link]) ? $linksParams[$link] : [];
+			
+			$nav[] = new NavigationItem($this->presenter->link($link, $itemParams), $title, $this->getSanitizedLink($link) == $this->currentLink);
+		}
+
+		return $nav;
 	}
 
 
 	public function render()
 	{
 		$template			= $this->template;
-		$template->leftNav	= $this->leftNav;
-		$template->rightNav	= $this->rightNav;
+		$template->navItems	= $this->navItems;
+		$template->navId	= $this->navId;
 
 		$template->render(__DIR__ . '/navigation.latte');
 	}

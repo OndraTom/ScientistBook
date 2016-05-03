@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" type="text/css" href="{$basePath}/css/global.css" />
+		<link rel="stylesheet" type="text/css" href="{$basePath}/css/front.css" />
 
 		<title>{ifset title}{include title|striptags} | {/ifset}Scientists</title>
 	</head>
@@ -11,10 +12,6 @@
 	<body>
 		<div id="content">
 			<header>
-				<nav id="left-nav">
-					<a n:href="Homepage:default">Homepage</a>
-				</nav>
-
 				<nav id="right-nav">
 					{if $user->isLoggedIn()}
 						<a n:href=":Admin:About:default">Administration</a>
