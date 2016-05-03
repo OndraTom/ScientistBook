@@ -114,7 +114,7 @@ class ProfilePresenter extends BasePresenter
 	
 	public function renderDefault()
 	{
-		$this->template->positions	= $this->positionsModel->findBy(['user_id' => $this->scientist->id]);
+		$this->template->positions	= $this->positionsModel->findBy(['user_id' => $this->scientist->id])->order('year_from DESC');
 		$this->template->educations = $this->educationModel->findBy(['user_id' => $this->scientist->id]);
 		$this->template->awards		= $this->awardsModel->findBy(['user_id' => $this->scientist->id]);
 	}

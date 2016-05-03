@@ -9,21 +9,35 @@
 </section>
 
 <section>
-	<h3>Positions</h3>
+	<h3>Academic Positions</h3>
 	
 	{foreach $positions as $position}
-		<div class="position">
-			{$position->title}
+		<div class="section-item">
+			<div class="boxes">
+				<div class="item first">{$position->year_from}</div>
+				<div class="item">{$position->year_to ? $position->year_to : 'Present'}</div>
+			</div>
+			<div class="content">
+				<div class="title">{$position->title}</div>
+				<div class="description">{$position->place}</div>
+			</div>
 		</div>
 	{/foreach}
 </section>
 
 <section>
-	<h3>Education & teaching</h3>
+	<h3>Education & Training</h3>
 	
 	{foreach $educations as $education}
-		<div class="education">
-			{$education->title}
+		<div class="section-item">
+			<div class="boxes">
+				<div class="item first">{$education->title}</div>
+				<div class="item">{$education->graduation_year}</div>
+			</div>
+			<div class="content">
+				<div class="title">{$education->full_title}</div>
+				<div class="description">{$education->place}</div>
+			</div>
 		</div>
 	{/foreach}
 </section>
@@ -32,8 +46,14 @@
 	<h3>Honors, Awards and Grants</h3>
 	
 	{foreach $awards as $award}
-		<div class="award">
-			{$award->title}
+		<div class="section-item">
+			<div class="boxes">
+				<div class="item">{$award->year}</div>
+			</div>
+			<div class="content">
+				<div class="title">{$award->title}</div>
+				<div class="description">{$award->description}</div>
+			</div>
 		</div>
 	{/foreach}
 </section>
