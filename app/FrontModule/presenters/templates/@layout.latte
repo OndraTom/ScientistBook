@@ -12,14 +12,16 @@
 	<body>
 		<div id="content">
 			<header>
-				<nav id="right-nav">
-					{if $user->isLoggedIn()}
-						<a n:href=":Admin:About:default">Administration</a>
-						<a n:href="logout!">Log-out</a>
-					{else}
-						<a n:href=":Login:default">Log-in</a>
-					{/if}
-				</nav>
+				{block nav}
+					<nav id="right-nav">
+						{if $user->isLoggedIn()}
+							<a n:href=":Admin:About:default">Administration</a>
+							<a n:href="logout!">Log-out</a>
+						{else}
+							<a n:href=":Login:default">Log-in</a>
+						{/if}
+					</nav>
+				{/block}
 			</header>
 
 			<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>

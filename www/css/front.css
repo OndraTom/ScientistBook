@@ -29,17 +29,21 @@ h3 {
 	display: block;
 	padding: 12px;
 	box-shadow: -3px 0 5px -4px #000;
-	color: #f7f7f7;
+	color: #ccc;
 	font-size: 14px;
+	border-top: 1px solid #373737;
+	border-bottom: 1px solid #2B2B2B;
 }
 
 #profile-menu nav .nav-item a:hover {
 	background-color: #363636;
+	color: #f7f7f7;
 }
 
 #profile-menu nav .nav-item.selected a {
 	font-weight: bold;
 	background-color: #363636;
+	color: #f7f7f7;
 }
 
 #profile-content {
