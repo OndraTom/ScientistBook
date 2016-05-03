@@ -5,14 +5,10 @@
 <div id="profile-menu">
 	<div class="user-detail">
 		<div class="pic">
-			<img src="{$gravatarLink}" alt="gravatar" />
+			<img src="{$gravatarLink}" alt="gravatar" width="125" height="125" />
 		</div>
-		<div class="name">
-			{$scientist->name} {$scientist->surname}
-		</div>
-		<div class="facility">
-			{$scientist->facility}
-		</div>
+		<h2>{$scientist->name} {$scientist->surname}</h2>
+		<h3>{$scientist->facility}</h3>
 	</div>
 	<div class="navigation">
 		{control navigation}
