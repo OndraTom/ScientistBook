@@ -136,3 +136,40 @@ section.gallery img {
 .section-item .description {
 	font-size: 13px;
 }
+
+.interest {
+	border-left-color: #03cc85;
+	border-left: 5px solid;
+	padding: 7px;
+	background-color: #FdFdFd;
+	margin-bottom: 10px;
+	box-shadow: 0px 3px 3px -3px #ccc;
+}
+
+.project {
+	padding: 15px;
+	box-shadow: 0px 3px 3px -3px #ccc;
+	background-color: #FdFdFd;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.project .title {
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.project .description {
+	font-size: 18px;
+}
+
+.project .content {
+	padding-top: 20px;
+	font-size: 14px;
+	display: none;
+	cursor: initial;
+}
+
+.project .content.visible {
+	display: block;
+}
