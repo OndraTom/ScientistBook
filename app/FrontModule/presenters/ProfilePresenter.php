@@ -141,7 +141,7 @@ class ProfilePresenter extends BasePresenter
 	
 	public function renderPublications()
 	{
-		$this->template->publications = $this->publicationsModel->findBy(['user_id' => $this->scientist->id]);
+		$this->template->publications = $this->publicationsModel->findBy(['user_id' => $this->scientist->id])->order('year DESC');
 	}
 	
 	

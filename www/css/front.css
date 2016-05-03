@@ -146,15 +146,16 @@ section.gallery img {
 	box-shadow: 0px 3px 3px -3px #ccc;
 }
 
-.project {
+.project, .publication {
 	padding: 15px;
 	box-shadow: 0px 3px 3px -3px #ccc;
 	background-color: #FdFdFd;
 	margin-bottom: 5px;
 	cursor: pointer;
+	overflow: hidden;
 }
 
-.project .title {
+.project .title, .publication .title {
 	font-size: 24px;
 	margin-bottom: 10px;
 }
@@ -163,13 +164,30 @@ section.gallery img {
 	font-size: 18px;
 }
 
-.project .content {
+.project .content, .publication .content {
 	padding-top: 20px;
 	font-size: 14px;
 	display: none;
 	cursor: initial;
 }
 
-.project .content.visible {
+.project .content.visible, .publication .content.visible {
 	display: block;
+}
+
+.publication {
+	margin-top: 15px;
+}
+
+.publication .type, .publication .paper {
+	float: left;
+}
+
+.publication .content {
+	clear: both;
+}
+
+.publication .content h4 {
+	margin-top: 5px;
+	margin-bottom: 5px;
 }

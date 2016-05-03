@@ -3,11 +3,29 @@
 {block profileContent}
 
 <section>
-	<h2>Selected publications</h2>
+	<h2>Selected Publications</h2>
+	
+	<div>
+		<label>Filter by type</label>
+		<select id="publications-types-filter">
+			<option value="">All types</option>
+		</select>
+	</div>
 	
 	{foreach $publications as $publication}
-		<div class="publication">
-			{$publication->title}
+		<div class="publication" data-type="{$publication->ref('type_id')->title}">
+			<div class="header">
+				<div class="title">{$publication->title}</div>
+				<div class="authors"><strong>{$scientist->name} {$scientist->surname}</strong>, {$publication->co_authors}</div>
+				<div>
+					<div class="type {$publication->ref('type_id')->title|webalize}">{$publication->ref('type_id')->title}</div>
+					<div class="paper">{$publication->paper_name}, {$publication->year}</div>
+				</div>
+			</div>
+			<div class="content">
+				<h4>Abstract</h4>
+				<p>{$publication->abstract}</p>
+			</div>
 		</div>
 	{/foreach}
 </section>
