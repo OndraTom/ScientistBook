@@ -16,6 +16,7 @@ function correctProfileMenu()
 		if (menu.outerHeight() > $(window).height())
 		{
 			menu.addClass('absolute');
+			$('#profile-menu-toggle').addClass('absolute');
 		}
 	}
 }
@@ -81,6 +82,10 @@ $(function() {
 		var dialogElement = $('#' + $(this).attr('data-dialog'));
 
 		showDialog(dialogElement);
+	});
+	
+	$('#profile-menu-toggle').click(function() {
+		$('#profile-menu').toggleClass('visible');
 	});
 	
 });

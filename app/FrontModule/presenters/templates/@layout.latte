@@ -24,8 +24,8 @@
 					{else}
 						{control unloggedNav}
 					{/if}
+					<div class="nav-toggle">&#9776;</div>
 				{/block}
-				<div class="nav-toggle">&#9776;</div>
 			</header>
 
 			<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>

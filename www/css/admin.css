@@ -30,7 +30,7 @@ form.main-center {
 
 @media screen and (max-width: 1130px) {
 	header .nav-toggle {
-		display: block;
+		display: block !important;
 	}
 	
 	#left-nav .nav-item, #right-nav .nav-item {
