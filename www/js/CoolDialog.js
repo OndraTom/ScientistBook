@@ -6,26 +6,21 @@
 $(window).load(function() {
 
 	function CoolDialog(dialogBox)
-	{
+	{	
 		this.dialogBox		= dialogBox;
 		this.dialogContent	= dialogBox.find('.dialog-content');
 		this.dialogOverlay	= dialogBox.find('.dialog-overlay');
-		this.closeBtn		= dialogBox.find('[data-dialog-close]');
+		this.closeOnClick	= false;
 		this.isOpen			= false;
-
-		this._initEvents();
+		this.eventsInited	= false;
 	}
 
 	CoolDialog.prototype._initEvents = function() {
 
 		var self = this;
-
-		this.closeBtn.click(function() {
-			self.toggle();
-		});
-
+		
 		this.dialogOverlay.click(function(e) {
-			if ($(e.target).attr('class') === 'dialog-overlay')
+			if (self.closeOnClick || $(e.target).attr('class') === 'dialog-overlay')
 			{
 				self.toggle();
 			}
@@ -39,13 +34,23 @@ $(window).load(function() {
 		});
 
 	};
+	
+	CoolDialog.prototype.setCloseOnClick = function(flag) {
+		
+		this.closeOnClick = flag;
+	};
 
 	CoolDialog.prototype.toggle = function() {
+
+		if (!this.eventsInited)
+		{
+			this._initEvents();
+		}
 
 		var self = this;
 
 		if (this.isOpen)
-		{
+		{	
 			this.dialogBox.removeClass('dialog--open');
 			this.dialogBox.addClass('dialog--close');
 

@@ -1,3 +1,12 @@
+function showDialog(dialogElement)
+{	
+	var dialog = new CoolDialog(dialogElement);
+	
+	dialog.setCloseOnClick(true);
+
+	dialog.toggle();
+}
+
 function loadPublicationTypes()
 {
 	var typeFilter = $('#publications-types-filter');
@@ -50,6 +59,13 @@ $(function() {
 				}
 			});
 		}
+	});
+	
+	$('.dialog-trigger').click(function() {
+
+		var dialogElement = $('#' + $(this).attr('data-dialog'));
+
+		showDialog(dialogElement);
 	});
 	
 });

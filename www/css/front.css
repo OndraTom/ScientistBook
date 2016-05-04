@@ -6,6 +6,28 @@ h3 {
 	font-weight: 300;
 }
 
+.dialog {
+	cursor: pointer;
+}
+
+.dialog .wrap {
+	overflow: hidden;
+	text-align: center;
+}
+
+.dialog-content {
+	width: auto;
+	height: auto;
+	max-width: 90%;
+	padding: 10px;
+	min-width: 50px;
+	display: inline-block;
+}
+
+.dialog-content img {
+	max-width: 100%;
+}
+
 #content {
 	width: 100%;
 	overflow: hidden;
@@ -93,8 +115,9 @@ section.gallery .photo {
 	margin-right: 5px;
 }
 
-section.gallery img {
+section.gallery .photo img {
 	width: 200px;
+	cursor: pointer;
 }
 
 .section-item .boxes .item {

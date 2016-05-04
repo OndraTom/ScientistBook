@@ -5,9 +5,18 @@
 <section class="gallery">
 	<h2>Gallery</h2>
 	
-	{foreach $photos as $photo}
+	{foreach $photos as $n => $photo}
 		<div class="photo">
-			<img src="{$basePath}{$photo->relative_path}" alt="{$photo->name}" />
+			<img src="{$basePath}{$photo->relative_path}" alt="{$photo->name}" data-dialog="photo-dialog-{$n}" class="dialog-trigger" />
+		</div>
+		<div class="dialog" id="photo-dialog-{$n}">
+			<div class="dialog-overlay">
+				<div class="wrap">
+					<div class="dialog-content">
+						<img src="{$basePath}{$photo->relative_path}" alt="{$photo->name}" />
+					</div>
+				</div>
+			</div>
 		</div>
 	{/foreach}
 </section>
