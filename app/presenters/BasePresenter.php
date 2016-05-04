@@ -46,7 +46,7 @@ abstract class BasePresenter extends Presenter
 
 		$this->flashMessage('You have been successfully logged out.');
 
-		$this->redirect(':Login:default');
+		$this->redirect(':Front:Homepage:default');
 	}
 
 
