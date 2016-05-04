@@ -23,6 +23,67 @@ header {
 	overflow: hidden;
 }
 
+header nav a, header .nav-toggle {
+	color: #337ab7;
+	text-decoration: none;
+	display: block;
+	padding: 10px 15px;
+	border-radius: 4px;
+	background-color: transparent;
+	text-align: center;
+}
+
+header nav .nav-item.selected a, header nav a:hover {
+	background-color: #337ab7;
+	color: #fff;
+}
+
+header nav .nav-item {
+	float: left;
+}
+
+header nav .nav-item:not(:first-child) {
+	margin-left: 5px;
+}
+
+header .nav-toggle {
+	display: none;
+	float: right;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top: 18px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 1130px) {
+	header .nav-toggle {
+		display: block;
+	}
+	
+	#left-nav .nav-item, #right-nav .nav-item {
+		display: none;
+		float: none;
+		clear: both;
+		margin-left: 0;
+		-webkit-transition: display 2s;
+		transition: display 2s;
+	}
+	
+	#left-nav .nav-item.visible, #right-nav .nav-item.visible {
+		display: block;
+	}
+	
+	#left-nav, #right-nav {
+		float: none;
+	}
+	
+	#content {
+		margin-top: 60px;
+	}
+}
+
 #left-nav {
 	float: left;
 }

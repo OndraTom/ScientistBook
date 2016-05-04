@@ -19,6 +19,12 @@ abstract class BasePresenter extends Presenter
 	 */
 	const MESSAGE_TYPE_INFO		= 'info';
 	const MESSAGE_TYPE_ERROR	= 'error';
+	
+	
+	protected $rightNavItems = [
+		':Registration:default' => 'Sign-up',
+		'Login:default'			=> 'Log-in'
+	];
 
 
 	/**
@@ -52,5 +58,11 @@ abstract class BasePresenter extends Presenter
 		$form->setRenderer(new PrettyFormRenderer);
 
 		return $form;
+	}
+	
+	
+	protected function createComponentRightNav()
+	{
+		return new Navigation($this, $this->rightNavItems, 'right-nav');
 	}
 }
