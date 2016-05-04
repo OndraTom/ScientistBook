@@ -27,9 +27,5 @@ $(function() {
 	$('a.confirm').click(function() {
 		return confirm('Are you sure?');
 	});
-	
-	$('.nav-toggle').click(function() {
-		$('nav .nav-item').toggleClass('visible');
-	});
 
 });

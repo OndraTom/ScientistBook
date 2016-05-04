@@ -27,3 +27,30 @@ form.main-center {
 .items-list.gallery .list-item img {
 	max-width: 150px;
 }
+
+@media screen and (max-width: 1130px) {
+	header .nav-toggle {
+		display: block;
+	}
+	
+	#left-nav .nav-item, #right-nav .nav-item {
+		display: none;
+		float: none;
+		clear: both;
+		margin-left: 0;
+		-webkit-transition: display 2s;
+		transition: display 2s;
+	}
+	
+	#left-nav .nav-item.visible, #right-nav .nav-item.visible {
+		display: block;
+	}
+	
+	#left-nav, #right-nav {
+		float: none;
+	}
+	
+	#content {
+		margin-top: 60px;
+	}
+}

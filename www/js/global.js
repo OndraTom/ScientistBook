@@ -8,5 +8,9 @@ function showDialog(dialogElement)
 $(function() {
 
 	$.nette.init();
+	
+	$('.nav-toggle').click(function() {
+		$('nav .nav-item').toggleClass('visible');
+	});
 
 });

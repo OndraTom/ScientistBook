@@ -15,7 +15,9 @@
 			<header>
 				{block nav}
 					<nav id="left-nav">
-						<a n:href="Homepage:default" class="logo">ScientistBook</a>
+						<div class="nav-item">
+							<a n:href="Homepage:default" class="logo">ScientistBook</a>
+						</div>
 					</nav>
 					{if $user->isLoggedIn()}
 						{control loggedNav}
@@ -23,6 +25,7 @@
 						{control unloggedNav}
 					{/if}
 				{/block}
+				<div class="nav-toggle">&#9776;</div>
 			</header>
 
 			<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
