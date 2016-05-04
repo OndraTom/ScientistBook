@@ -211,7 +211,7 @@ section.gallery .photo img {
 	margin-bottom: 10px;
 }
 
-.project, .publication .type {
+.publication .type {
 	margin-right: 15px;
 	padding: 2px 6px;
 	font-size: 12px;
@@ -219,19 +219,19 @@ section.gallery .photo img {
 	border-radius: 4px;
 }
 
-.project, .publication .type.journal-paper {
+.publication .type.journal-paper {
 	background-color: #5cb85c;
 }
 
-.project, .publication .type.conference-paper {
+.publication .type.conference-paper {
 	background-color: #f0ad4e;
 }
 
-.project, .publication .type.book {
+.publication .type.book {
 	background-color: #428bca;
 }
 
-.project, .publication .type.book-chapter {
+.publication .type.book-chapter {
 	background-color: #5bc0de;
 }
 
