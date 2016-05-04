@@ -20,7 +20,8 @@ CREATE TABLE `awards` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `awards` (`id`, `user_id`, `year`, `title`, `description`) VALUES
-(1,	1,	2015,	'taaatl',	'descripta');
+(1,	1,	2013,	'Ormond Family Faculty Fellow',	' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas dapibus lectus non dignissim. Pellentesque auctor ornare urna, volutpat condimentum quam porttitor at. Vestibulum tincidunt diam in eros aliquam luctus. Donec sagittis a purus a porttitor. Sed non feugiat enim. Donec eget metus erat. Vivamus sed consequat orci. Aenean commodo lectus sed purus auctor ullamcorper.'),
+(2,	1,	2015,	'Distinguished Scientific Achievement Award',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed egestas dapibus lectus non dignissim. Pellentesque auctor ornare urna, volutpat condimentum quam porttitor at. Vestibulum tincidunt diam in eros aliquam luctus. Donec sagittis a purus a porttitor. Sed non feugiat enim. Donec eget metus erat. Vivamus sed consequat orci. Aenean commodo lectus sed purus auctor ullamcorper. ');
 
 DROP TABLE IF EXISTS `education`;
 CREATE TABLE `education` (
@@ -36,8 +37,8 @@ CREATE TABLE `education` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `education` (`id`, `user_id`, `title`, `full_title`, `graduation_year`, `place`) VALUES
-(1,	1,	'tajtlaaa',	'fujtajtl',	2015,	'placek'),
-(2,	1,	'gogo',	'adsf',	2016,	'adsf');
+(1,	1,	'Bc',	'Bachelor of IT',	2010,	'University Palacky'),
+(2,	1,	'PhD',	'Doctor of programming',	2014,	'Parallel Universe');
 
 DROP TABLE IF EXISTS `interests`;
 CREATE TABLE `interests` (
@@ -50,10 +51,10 @@ CREATE TABLE `interests` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `interests` (`id`, `user_id`, `title`) VALUES
-(1,	1,	'interesta'),
-(2,	1,	'dasf'),
-(3,	1,	'asdfasdf'),
-(4,	1,	'asdfadsf');
+(1,	1,	'Time, Money and Happiness'),
+(2,	1,	'The Power of Story'),
+(3,	1,	'Building Innovative Brands'),
+(4,	1,	'Cultural Psychology');
 
 DROP TABLE IF EXISTS `photos`;
 CREATE TABLE `photos` (
@@ -68,17 +69,14 @@ CREATE TABLE `photos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `photos` (`id`, `user_id`, `name`, `path`, `relative_path`) VALUES
-(44,	1,	'photo_5724f2042c84f.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f2042c84f.jpg',	'/galleries/1/photo_5724f2042c84f.jpg'),
-(47,	1,	'photo_5724f3bd82d16.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bd82d16.jpg',	'/galleries/1/photo_5724f3bd82d16.jpg'),
-(48,	1,	'photo_5724f3bd8eb54.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bd8eb54.jpg',	'/galleries/1/photo_5724f3bd8eb54.jpg'),
-(49,	1,	'photo_5724f3bd99e54.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bd99e54.jpg',	'/galleries/1/photo_5724f3bd99e54.jpg'),
-(50,	1,	'photo_5724f3bdb2cb1.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bdb2cb1.jpg',	'/galleries/1/photo_5724f3bdb2cb1.jpg'),
-(51,	1,	'photo_5724f3bdc5012.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bdc5012.jpg',	'/galleries/1/photo_5724f3bdc5012.jpg'),
-(52,	1,	'photo_5724f3bdd0363.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bdd0363.jpg',	'/galleries/1/photo_5724f3bdd0363.jpg'),
-(53,	1,	'photo_5724f3bdd7397.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bdd7397.jpg',	'/galleries/1/photo_5724f3bdd7397.jpg'),
-(54,	1,	'photo_5724f3bde9767.JPG',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3bde9767.JPG',	'/galleries/1/photo_5724f3bde9767.JPG'),
-(55,	1,	'photo_5724f3be00777.JPG',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3be00777.JPG',	'/galleries/1/photo_5724f3be00777.JPG'),
-(56,	1,	'photo_5724f3be09e52.jpg',	'C:\\xampp\\htdocs\\ScientistBook\\app\\models/../../www/galleries/1/photo_5724f3be09e52.jpg',	'/galleries/1/photo_5724f3be09e52.jpg');
+(57,	1,	'photo_572791cb988aa.jpg',	'O:\\PHP projects\\ScientistBook\\app\\models/../../www/galleries/1/photo_572791cb988aa.jpg',	'/galleries/1/photo_572791cb988aa.jpg'),
+(58,	1,	'photo_572791cb9ba36.jpg',	'O:\\PHP projects\\ScientistBook\\app\\models/../../www/galleries/1/photo_572791cb9ba36.jpg',	'/galleries/1/photo_572791cb9ba36.jpg'),
+(59,	1,	'photo_572791cb9e8c6.jpg',	'O:\\PHP projects\\ScientistBook\\app\\models/../../www/galleries/1/photo_572791cb9e8c6.jpg',	'/galleries/1/photo_572791cb9e8c6.jpg'),
+(60,	1,	'photo_572791cba0ab8.jpg',	'O:\\PHP projects\\ScientistBook\\app\\models/../../www/galleries/1/photo_572791cba0ab8.jpg',	'/galleries/1/photo_572791cba0ab8.jpg'),
+(61,	1,	'photo_572791cba2a1d.jpg',	'O:\\PHP projects\\ScientistBook\\app\\models/../../www/galleries/1/photo_572791cba2a1d.jpg',	'/galleries/1/photo_572791cba2a1d.jpg'),
+(62,	1,	'photo_572791e2ac753.jpg',	'O:\\PHP projects\\ScientistBook\\app\\models/../../www/galleries/1/photo_572791e2ac753.jpg',	'/galleries/1/photo_572791e2ac753.jpg'),
+(63,	1,	'photo_57279354487ce.jpg',	'O:\\PHP projects\\ScientistBook\\app\\models/../../www/galleries/1/photo_57279354487ce.jpg',	'/galleries/1/photo_57279354487ce.jpg'),
+(64,	1,	'photo_572a357a655e5.jpeg',	'O:\\PHP projects\\ScientistBook\\app\\models/../../www/galleries/1/photo_572a357a655e5.jpeg',	'/galleries/1/photo_572a357a655e5.jpeg');
 
 DROP TABLE IF EXISTS `positions`;
 CREATE TABLE `positions` (
@@ -94,10 +92,8 @@ CREATE TABLE `positions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `positions` (`id`, `user_id`, `title`, `place`, `year_from`, `year_to`) VALUES
-(1,	1,	'position',	'placek',	2012,	2014),
-(2,	1,	'asdf',	'adsf',	1950,	0),
-(3,	1,	'asdfasdf',	'asdfasdf',	1950,	2015),
-(4,	1,	'aaaaa',	'asdfasdf',	2015,	NULL);
+(1,	1,	'Full Professor',	'Stanford University, Graduate School of Business',	2004,	2008),
+(2,	1,	'General Atlantic Professor',	'Columbia University, Graduate School of Business',	2010,	NULL);
 
 DROP TABLE IF EXISTS `projects`;
 CREATE TABLE `projects` (
@@ -112,14 +108,15 @@ CREATE TABLE `projects` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `projects` (`id`, `user_id`, `title`, `short_description`, `description`) VALUES
-(1,	1,	'projj',	'shor',	'long');
+(1,	1,	'Some project',	'Very short description of the project.',	'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+(2,	1,	'Another Project',	'Another Very short description of the project.',	'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
 
 DROP TABLE IF EXISTS `publications`;
 CREATE TABLE `publications` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `type_id` int(11) unsigned NOT NULL,
-  `title` varchar(64) COLLATE utf8_czech_ci NOT NULL,
+  `title` varchar(128) COLLATE utf8_czech_ci NOT NULL,
   `co_authors` varchar(512) COLLATE utf8_czech_ci NOT NULL,
   `paper_name` varchar(512) COLLATE utf8_czech_ci NOT NULL,
   `abstract` text COLLATE utf8_czech_ci NOT NULL,
@@ -133,7 +130,8 @@ CREATE TABLE `publications` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `publications` (`id`, `user_id`, `type_id`, `title`, `co_authors`, `paper_name`, `abstract`, `year`, `link`) VALUES
-(1,	1,	3,	'jounar',	'cotor',	'papir',	'abstraktek',	2015,	NULL);
+(1,	1,	3,	'Cultivating admiration in brands: Warmth, competence, and landin',	'Emily N. Garbinsky, Kathleen D. Vohs',	'Journal of Consumer Psychology, Volume 22, Issue 2, April 2012, Pages 191-194',	'Although a substantial amount of research has examined the constructs of warmth and competence, far less has examined how these constructs develop and what benefits may accrue when warmth and competence are cultivated. Yet there are positive consequences, both emotional and behavioral, that are likely to occur when brands hold perceptions of both. In this paper, we shed light on when and how warmth and competence are jointly promoted in brands, and why these reputations matter.',	2015,	NULL),
+(2,	1,	1,	'The Dragonfly Effect: Quick, Effective, and Powerful Ways To Use Social Media to Drive Social Change',	'Emily N. Garbinsky, Kathleen D. Vohs',	'John Wiley & Sons | September 28, 2010 | ISBN-10: 0470614153',	'Many books teach the mechanics of using Facebook, Twitter, and YouTube to compete in business. But no book addresses how to harness the incredible power of social media to make a difference. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',	1999,	NULL);
 
 DROP TABLE IF EXISTS `publication_types`;
 CREATE TABLE `publication_types` (
@@ -162,12 +160,15 @@ CREATE TABLE `teaching` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 INSERT INTO `teaching` (`id`, `user_id`, `title`, `description`, `year_from`, `year_to`) VALUES
-(1,	1,	'teaching',	'descr',	4564,	0);
+(1,	1,	'Preclinical Endodnotics',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices ac elit sit amet porttitor. Suspendisse congue, erat vulputate pharetra mollis, est eros fermentum nibh, vitae rhoncus est arcu vitae elit.',	1995,	1998),
+(2,	1,	'Endodontics Postdoctoral AEGD Program',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices ac elit sit amet porttitor. Suspendisse congue, erat vulputate pharetra mollis, est eros fermentum nibh, vitae rhoncus est arcu vitae elit.',	2005,	2008),
+(3,	1,	'Endodontics Postdoctoral AEGD Program',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices ac elit sit amet porttitor. Suspendisse congue, erat vulputate pharetra mollis, est eros fermentum nibh, vitae rhoncus est arcu vitae elit.',	2011,	NULL),
+(4,	1,	'Preclinical Endodnotics',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultrices ac elit sit amet porttitor. Suspendisse congue, erat vulputate pharetra mollis, est eros fermentum nibh, vitae rhoncus est arcu vitae elit.',	2013,	NULL);
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(64) COLLATE utf8_czech_ci NOT NULL,
+  `email` varchar(64) COLLATE utf8_czech_ci NOT NULL,
   `password` varchar(64) COLLATE utf8_czech_ci NOT NULL,
   `name` varchar(32) COLLATE utf8_czech_ci NOT NULL,
   `surname` varchar(32) COLLATE utf8_czech_ci NOT NULL,
@@ -176,14 +177,14 @@ CREATE TABLE `users` (
   `research_summary` text COLLATE utf8_czech_ci,
   `contact_info` text COLLATE utf8_czech_ci,
   `phone` varchar(32) COLLATE utf8_czech_ci DEFAULT NULL,
-  `mail` varchar(64) COLLATE utf8_czech_ci DEFAULT NULL,
   `skype` varchar(64) COLLATE utf8_czech_ci DEFAULT NULL,
   `twitter` varchar(64) COLLATE utf8_czech_ci DEFAULT NULL,
   `linked_in` varchar(64) COLLATE utf8_czech_ci DEFAULT NULL,
   `gravatar_email` varchar(128) COLLATE utf8_czech_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `login` (`login`)
+  UNIQUE KEY `login` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
-INSERT INTO `users` (`id`, `login`, `password`, `name`, `surname`, `bio`, `facility`, `research_summary`, `contact_info`, `phone`, `mail`, `skype`, `twitter`, `linked_in`, `gravatar_email`) VALUES
-(1,	'admin',	'aba74e0e50ac8e433a33fc23c9e4f828f6f5a622',	'Ondřej',	'Tom',	'bio jak brnooo',	'faca',	NULL,	NULL,	NULL,	'info@ondratom.cz',	NULL,	NULL,	NULL,	NULL);
+INSERT INTO `users` (`id`, `email`, `password`, `name`, `surname`, `bio`, `facility`, `research_summary`, `contact_info`, `phone`, `skype`, `twitter`, `linked_in`, `gravatar_email`) VALUES
+(1,	'info@ondratom.cz',	'aba74e0e50ac8e433a33fc23c9e4f828f6f5a622',	'Ondřej',	'Tom',	'A social psychologist and marketer, Jennifer Doe is the General Atlantic Professor of Marketing and Ormond Family Faculty at Stanford University’s Graduate School of Business. Her research spans time, money and happiness. She focuses on questions such as: What actually makes people happy, as opposed to what they think makes them happy? ',	'Harward University',	'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',	'I would be happy to talk to you if you need my assistance in your research or whether you need bussiness administration support for your company. Though I have limited time for students but I Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',	'123456789',	'odisek',	'twitter',	'linked',	NULL),
+(13,	'info@ondratom.czz',	'018f4d7f06cb8626e1756452581373e05ae41c56',	'oto',	'oto',	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL,	NULL);
