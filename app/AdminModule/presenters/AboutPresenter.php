@@ -76,9 +76,21 @@ class AboutPresenter extends BasePresenter
 
 		$form->setDefaults($this->userData);
 
-		$form->onSuccess[] = $this->aboutFormSubmitted;
+		$form->onValidate[] = $this->validateAboutForm;
+		$form->onSuccess[]	= $this->aboutFormSubmitted;
 
 		return $form;
+	}
+	
+	
+	public function validateAboutForm(Form $form)
+	{
+		$values = $form->getValues();
+		
+		if (!$this->usersModel->isEmailFreeForUser($this->userData->id, $values->email))
+		{
+			$form->addError('This e-mail is used by another user.');
+		}
 	}
 
 

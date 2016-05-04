@@ -112,6 +112,6 @@ class UsersModel extends BaseModel implements Security\IAuthenticator
 	
 	public function isEmailFreeForUser($userId, $email)
 	{
-		return $this->getAll()->where('email = ? AND user_id <> ?', $email, $userId)->count() == 0;
+		return $this->getAll()->where('email = ? AND id <> ?', $email, $userId)->count() == 0;
 	}
 }
