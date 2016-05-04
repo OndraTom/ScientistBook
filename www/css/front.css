@@ -46,6 +46,10 @@ h3 {
 	color: #fff;
 }
 
+#profile-menu.absolute {
+	position: absolute;
+}
+
 #profile-menu .pic img {
 	border-radius: 50%;
 }

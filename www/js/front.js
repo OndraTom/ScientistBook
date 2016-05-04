@@ -7,6 +7,19 @@ function showDialog(dialogElement)
 	dialog.toggle();
 }
 
+function correctProfileMenu()
+{
+	var menu = $('#profile-menu');
+	
+	if (menu)
+	{
+		if (menu.outerHeight() > $(window).height())
+		{
+			menu.addClass('absolute');
+		}
+	}
+}
+
 function loadPublicationTypes()
 {
 	var typeFilter = $('#publications-types-filter');
@@ -32,6 +45,8 @@ function loadPublicationTypes()
 
 
 $(function() {
+	
+	correctProfileMenu();
 	
 	loadPublicationTypes();
 	
