@@ -222,3 +222,9 @@ section.gallery .photo img {
 section.teaching h3 {
 	margin-top: 50px !important;
 }
+
+#find-scientists {
+	text-align: center;
+	max-width: 400px;
+	margin: auto;
+}

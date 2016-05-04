@@ -5,6 +5,7 @@ namespace App\FrontModule\Presenters;
 use Nette\Application\UI\Form;
 use Nette\Utils\ArrayHash;
 use App\Models\UsersModel;
+use App\Renderers\PrettyFormRenderer;
 
 class HomepagePresenter extends BasePresenter
 {
@@ -37,12 +38,17 @@ class HomepagePresenter extends BasePresenter
 	
 	protected function createComponentFindScientistForm()
 	{
+		$httpRequest = $this->context->getByType('Nette\Http\Request');
+		
 		$form = new Form;
+		
+		$form->setRenderer(new PrettyFormRenderer);
 		
 		$form->setMethod('get');
 		
-		$form->addText('scientist')
-				->setRequired();
+		$form->addText('scientist', 'Scientist:')
+				->setRequired()
+				->setDefaultValue($httpRequest->getQuery('scientist'));
 		
 		$form->addSubmit('find', 'Find');
 		

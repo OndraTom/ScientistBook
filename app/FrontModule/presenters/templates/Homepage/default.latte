@@ -1,17 +1,23 @@
 {block content}
 
-{control findScientistForm}
+<div id="find-scientists">
+	
+	<h3>Find Scientist</h3>
+	
+	{control findScientistForm}
 
-{if isset($foundUsers)}
-	<div id="found-users">
-		{if empty($foundUsers)}
-			<div>Nothing found.</div>
-		{else}
-			{foreach $foundUsers as $user}
-				<div class="user">
-					<a n:href="Profile:default $user->id">{$user->name} {$user->surname}</a>
-				</div>
-			{/foreach}
-		{/if}
-	</div>
-{/if}
+	{if isset($foundUsers)}
+		
+		<div id="found-users">
+			{if empty($foundUsers)}
+				<div>Nothing found.</div>
+			{else}
+				{foreach $foundUsers as $user}
+					<div class="user">
+						<a n:href="Profile:default $user->id">{$user->name} {$user->surname}</a>
+					</div>
+				{/foreach}
+			{/if}
+		</div>
+	{/if}
+</div>
