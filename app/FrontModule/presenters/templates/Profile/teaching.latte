@@ -2,12 +2,40 @@
 
 {block profileContent}
 
-<section>
+<section class="teaching">
 	<h2>Teaching</h2>
 	
-	{foreach $teachings as $teaching}
-		<div class="teaching">
-			{$teaching->title}
-		</div>
-	{/foreach}
+	{if $currentTeaching->count()}
+		<h3>Current Teaching</h3>
+		
+		{foreach $currentTeaching as $teaching}
+			<div class="section-item">
+				<div class="boxes">
+					<div class="item first">{$teaching->year_from}</div>
+					<div class="item">Present</div>
+				</div>
+				<div class="content">
+					<div class="title">{$teaching->title}</div>
+					<div class="description">{$teaching->description}</div>
+				</div>
+			</div>
+		{/foreach}
+	{/if}
+	
+	{if $historyTeaching->count()}
+		<h3>Teaching History</h3>
+
+		{foreach $historyTeaching as $teaching}
+			<div class="section-item">
+				<div class="boxes">
+					<div class="item first">{$teaching->year_from}</div>
+					<div class="item">{$teaching->year_to}</div>
+				</div>
+				<div class="content">
+					<div class="title">{$teaching->title}</div>
+					<div class="description">{$teaching->description}</div>
+				</div>
+			</div>
+		{/foreach}
+	{/if}
 </section>

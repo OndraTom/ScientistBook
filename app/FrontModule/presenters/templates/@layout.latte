@@ -15,6 +15,7 @@
 				{block nav}
 					<nav id="right-nav">
 						{if $user->isLoggedIn()}
+							<a n:href="Profile:default $user->id">My Profile</a>
 							<a n:href=":Admin:About:default">Administration</a>
 							<a n:href="logout!">Log-out</a>
 						{else}

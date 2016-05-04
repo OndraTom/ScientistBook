@@ -153,7 +153,10 @@ class ProfilePresenter extends BasePresenter
 	
 	public function renderTeaching()
 	{
-		$this->template->teachings = $this->teachingModel->findBy(['user_id' => $this->scientist->id]);
+		$this->template->currentTeaching = $this->teachingModel->getCurrentTeaching($this->scientist->id);
+		$this->template->historyTeaching = $this->teachingModel->getHistoryTeaching($this->scientist->id);
+		
+		//dump($this->template->currentTeaching->count());die;
 	}
 	
 	
