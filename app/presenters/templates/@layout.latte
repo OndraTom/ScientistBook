@@ -11,7 +11,12 @@
 	<body>
 		<div id="content">
 			<header>
-				{control navigation}
+				<nav id="left-nav">
+					<a n:href=":Front:Homepage:default" class="logo">ScientistBook</a>
+				</nav>
+				<nav id="right-nav">
+					<a n:href="Login:default">Log-in</a>
+				</nav>
 			</header>
 
 			<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>

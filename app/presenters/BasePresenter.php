@@ -21,11 +21,6 @@ abstract class BasePresenter extends Presenter
 	const MESSAGE_TYPE_ERROR	= 'error';
 
 
-	protected $navigationItems = [
-		'Login:default' => 'Log-in'
-	];
-
-
 	/**
 	 * Flash error message.
 	 *
@@ -57,11 +52,5 @@ abstract class BasePresenter extends Presenter
 		$form->setRenderer(new PrettyFormRenderer);
 
 		return $form;
-	}
-
-
-	protected function createComponentNavigation()
-	{
-		return new Navigation($this, $this->navigationItems, 'right-nav');
 	}
 }

@@ -14,6 +14,9 @@
 		<section id="content">
 			<header>
 				{block nav}
+					<nav id="left-nav">
+						<a n:href="Homepage:default" class="logo">ScientistBook</a>
+					</nav>
 					<nav id="right-nav">
 						{if $user->isLoggedIn()}
 							<a n:href="Profile:default $user->id">My Profile</a>
