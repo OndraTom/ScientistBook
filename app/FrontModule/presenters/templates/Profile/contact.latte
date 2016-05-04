@@ -2,12 +2,39 @@
 
 {block profileContent}
 
-<section>
+<section class="contact">
 	<h2>Contact</h2>
 	
-	<div class="contact-item">{$scientist->email}</div>
-	<div class="contact-item">{$scientist->phone}</div>
-	<div class="contact-item">{$scientist->skype}</div>
-	<div class="contact-item">{$scientist->twitter}</div>
-	<div class="contact-item">{$scientist->linked_in}</div>
+	<div class="contact-item">
+		<div class="label">E-mail:</div>
+		<div class="content">{$scientist->email}</div>
+	</div>
+	
+	{if $scientist->phone}
+		<div class="contact-item">
+			<div class="label">Phone:</div>
+			<div class="content">{$scientist->phone}</div>
+		</div>
+	{/if}
+	
+	{if $scientist->skype}
+		<div class="contact-item">
+			<div class="label">Skype:</div>
+			<div class="content">{$scientist->skype}</div>
+		</div>
+	{/if}
+	
+	{if $scientist->twitter}
+		<div class="contact-item">
+			<div class="label">Twitter:</div>
+			<div class="content">{$scientist->twitter}</div>
+		</div>
+	{/if}
+	
+	{if $scientist->linked_in}
+		<div class="contact-item">
+			<div class="label">Linked-in:</div>
+			<div class="content">{$scientist->linked}</div>
+		</div>
+	{/if}
 </section>

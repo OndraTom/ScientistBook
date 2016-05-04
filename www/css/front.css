@@ -227,3 +227,18 @@ section.teaching h3 {
 	max-width: 400px;
 	margin: auto;
 }
+
+section.contact .contact-item {
+	clear: both;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+section.contact .contact-item .label {
+	float: left;
+	min-width: 100px;
+}
+
+section.contact .contact-item .content {
+	float: left;
+}
