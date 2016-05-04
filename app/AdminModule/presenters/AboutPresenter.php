@@ -43,6 +43,9 @@ class AboutPresenter extends BasePresenter
 		$form = $this->getForm();
 
 		$form->getElementPrototype()->class = 'main-center';
+		
+		$form->addText('email', 'E-mail:')
+				->addRule(Form::EMAIL);
 
 		$form->addText('name', 'Name:')
 				->setRequired();
@@ -60,10 +63,6 @@ class AboutPresenter extends BasePresenter
 		$form->addTextArea('contact_info', 'Contact info:');
 
 		$form->addText('phone', 'Phone:');
-
-		$form->addText('mail', 'E-mail:')
-				->addCondition(Form::FILLED)
-					->addRule(Form::EMAIL);
 
 		$form->addText('skype', 'Skype:');
 

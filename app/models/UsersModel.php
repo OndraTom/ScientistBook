@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Nette\Security;
 use Nette\Database\Table\ActiveRow;
+use Nette\Utils\ArrayHash;
 
 /**
  * Users model.
@@ -41,10 +42,10 @@ class UsersModel extends BaseModel implements Security\IAuthenticator
 	 */
 	public function authenticate(array $credentials)
 	{
-		list($login, $password) = $credentials;
+		list($email, $password) = $credentials;
 
 		$user = $this->findBy([
-			'login'		=> $login,
+			'email'		=> $email,
 			'password'	=> $this->getCryptetString($password)
 		])->fetch();
 
@@ -57,13 +58,21 @@ class UsersModel extends BaseModel implements Security\IAuthenticator
 	}
 	
 	
+	public function registrate(ArrayHash $values)
+	{
+		$values->password = $this->getCryptetString($values->password);
+		
+		return (bool) $this->insert($values);
+	}
+	
+	
 	public function findScientists($string)
 	{
 		$scientists = [];
 		
 		$selections = [
 			$this->getAll()->where('CONCAT(name, " ", surname) LIKE ?', '%' . $string . '%'),
-			$this->getAll()->where('mail LIKE ?', $string)
+			$this->getAll()->where('email LIKE ?', $string)
 		];
 		
 		foreach ($selections as $selection)
@@ -86,11 +95,23 @@ class UsersModel extends BaseModel implements Security\IAuthenticator
 		{
 			$email = $user->gravatar_email;
 		}
-		else if ($user->mail)
+		else if ($user->email)
 		{
-			$email = $user->mail;
+			$email = $user->email;
 		}
 
 		return self::GRAVATAR_URL . md5($email) . self::GRAVATAR_URL_PARAMS;
+	}
+	
+	
+	public function isEmailFree($email)
+	{
+		return $this->getAll()->where(['email' => $email])->count() == 0;
+	}
+	
+	
+	public function isEmailFreeForUser($userId, $email)
+	{
+		return $this->getAll()->where('email = ? AND user_id <> ?', $email, $userId)->count() == 0;
 	}
 }
