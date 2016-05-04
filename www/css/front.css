@@ -207,6 +207,34 @@ section.gallery .photo img {
 	margin-bottom: 10px;
 }
 
+.project, .publication .authors {
+	margin-bottom: 10px;
+}
+
+.project, .publication .type {
+	margin-right: 15px;
+	padding: 2px 6px;
+	font-size: 12px;
+	color: #fff;
+	border-radius: 4px;
+}
+
+.project, .publication .type.journal-paper {
+	background-color: #5cb85c;
+}
+
+.project, .publication .type.conference-paper {
+	background-color: #f0ad4e;
+}
+
+.project, .publication .type.book {
+	background-color: #428bca;
+}
+
+.project, .publication .type.book-chapter {
+	background-color: #5bc0de;
+}
+
 .project .description {
 	font-size: 18px;
 }
